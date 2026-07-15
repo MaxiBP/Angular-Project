@@ -12,6 +12,6 @@ export class ImageList {
     type: 'Holo',
     price: 199,
     stock: 5,
-    img: 'assets\images\bg1.png',
+    img: 'assets/images/luffy.png',
   };
 }
