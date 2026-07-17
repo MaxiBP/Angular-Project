@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Read the manga!</a>
@@ -16,7 +16,7 @@
           <a class="nav-link" href="#">Pricing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link" [routerLink]="['/about']">About Us</a>
         </li>
       </ul>
     </div>
@@ -24,10 +24,7 @@
 </nav>
 
 <div class="container">
-  <div class="row">
-    <div class="col-8"> <app-image-list></app-image-list> </div>
-    <div class="col-4"> <app-cart></app-cart> </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
 
 <footer> OneStore and One Piece Rights Reserved</footer>

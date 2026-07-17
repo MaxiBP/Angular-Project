@@ -5,9 +5,12 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { ImageList } from './image-list/image-list';
 import { FormsModule } from '@angular/forms';
+import { Carrito } from './carrito/carrito';
+import { OneStoreAbout } from './one-store-about/one-store-about';
+import { OneStoreBackgrounds } from './one-store-backgrounds/one-store-backgrounds';
 
 @NgModule({
-  declarations: [App, ImageList],
+  declarations: [App, ImageList, Carrito, OneStoreAbout, OneStoreBackgrounds],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideClientHydration(withEventReplay())],
   bootstrap: [App],
