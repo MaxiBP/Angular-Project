@@ -6,29 +6,32 @@
       <th scope="col">Type</th>
       <th scope="col">Price</th>
       <th scope="col">Stock</th>
+      <th scope="col">compra</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><img [src]="image.img" [alt]="image.name"></td>
-      <td>{{image.name}}</td>
-      <td>{{image.type}}</td>
-      <td>{{image.price}}</td>
-      <td>{{image.stock}}</td>
-    </tr>
-    <tr>
-      <td><img class="img-fluid" [src]="image.img" [alt]="image.name"></td>
-      <td>Zoro</td>
-      <td>Common</td>
-      <td>10</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><img src="assets/images/bg1.png" alt="image.name"></td>
-      <td>Robin</td>
-      <td>Special</td>
-      <td>10</td>
-      <td>8</td>
-    </tr>
+    @for (image of images; track image.name) {
+      <tr [ngClass]="{'clearance': image.clearance}">
+        <td><img width="200" class="img-thumbnail" [src]="image.img" [alt]="image.name"></td>
+        <td>{{image.name}}</td>
+        <td>{{image.type}}</td>
+        <td>{{image.price |currency}}</td>
+        @if (image.stock > 0) {
+          <td>{{image.stock}}</td>
+        }@else {
+          <td><span class="badge bg-warning text-dark">SIN STOCK</span></td>
+        }
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="downQuantity(image)">-</button>
+          <input type="text" [(ngModel)]="image.quantity">
+          <button class="btn btn-primary btn-sm" (click)="upQuantity(image)">+</button>
+        </td>
+      </tr>
+    }@empty {
+      <tr>
+        <td colspan="4">No hay fondos para mostrar.</td>
+      </tr>
+    }
+
   </tbody>
 </table>
