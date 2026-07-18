@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BackgroundCart } from '../background-cart';
+import { Background } from '../background';
 
 @Component({
   selector: 'app-carrito',
@@ -6,4 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: './carrito.html',
   styleUrl: './carrito.scss',
 })
-export class Carrito {}
+export class Carrito {
+  carList: Background[] = [];
+  constructor(private cart: BackgroundCart) {
+    cart.cartList.subscribe((c) => (this.carList = c));
+  }
+}

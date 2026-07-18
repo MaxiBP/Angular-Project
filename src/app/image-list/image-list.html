@@ -22,7 +22,8 @@
           <td><span class="badge bg-warning text-dark">SIN STOCK</span></td>
         }
         <td>
-          <app-input-number [quantity]="image.quantity" [max]="image.stock"></app-input-number>
+          <app-input-number [(quantity)]="image.quantity" [max]="image.stock"></app-input-number>
+          <button class="btn bg-success" (click)="addToCart(image)">add to cart</button>
         </td>
       </tr>
     }@empty {

@@ -1,1 +1,9 @@
-<p>carrito de compras</p>
+<h3>carrito de compras</h3>
+<ul>
+    @for (image of carList; track image.name) {
+        <li>
+            {{image.name}}: {{image.quantity}}
+        </li>
+    }
+</ul>
+
