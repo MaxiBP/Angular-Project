@@ -22,9 +22,7 @@
           <td><span class="badge bg-warning text-dark">SIN STOCK</span></td>
         }
         <td>
-          <button class="btn btn-primary btn-sm" (click)="downQuantity(image)">-</button>
-          <input type="text" [(ngModel)]="image.quantity">
-          <button class="btn btn-primary btn-sm" (click)="upQuantity(image)">+</button>
+          <app-input-number [quantity]="image.quantity" [max]="image.stock"></app-input-number>
         </td>
       </tr>
     }@empty {

@@ -37,15 +37,4 @@ export class ImageList {
       quantity: 0,
     },
   ];
-
-  upQuantity(image: Background): void {
-    if (image.quantity < image.stock) {
-      image.quantity++;
-    }
-  }
-  downQuantity(image: Background): void {
-    if (image.quantity > 0) {
-      image.quantity--;
-    }
-  }
 }

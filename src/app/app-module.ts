@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { Carrito } from './carrito/carrito';
 import { OneStoreAbout } from './one-store-about/one-store-about';
 import { OneStoreBackgrounds } from './one-store-backgrounds/one-store-backgrounds';
+import { InputNumber } from './input-number/input-number';
 
 @NgModule({
-  declarations: [App, ImageList, Carrito, OneStoreAbout, OneStoreBackgrounds],
+  declarations: [App, ImageList, Carrito, OneStoreAbout, OneStoreBackgrounds, InputNumber],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideClientHydration(withEventReplay())],
   bootstrap: [App],
