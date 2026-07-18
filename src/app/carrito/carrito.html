@@ -2,6 +2,7 @@
 <ul>
     @for (image of carList; track image.name) {
         <li>
+            <img width="200" class="img-thumbnail" [src]="image.img" alt="">
             {{image.name}}: {{image.quantity}}
         </li>
     }
