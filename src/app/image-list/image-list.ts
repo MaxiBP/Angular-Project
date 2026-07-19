@@ -14,7 +14,7 @@ export class ImageList {
       name: 'Ruffy',
       type: 'Holo',
       price: 199,
-      stock: -5,
+      stock: 5,
       img: 'assets/images/ruffy.png',
       clearance: false,
       quantity: 0,

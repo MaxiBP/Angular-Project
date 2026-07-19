@@ -11,11 +11,16 @@
   </thead>
   <tbody>
     @for (image of images; track image.name) {
-      <tr [ngClass]="{'clearance': image.clearance}">
+      <tr >
         <td><img width="200" class="img-thumbnail" [src]="image.img" [alt]="image.name"></td>
         <td>{{image.name}}</td>
         <td>{{image.type}}</td>
-        <td>{{image.price |currency}}</td>
+        <td >
+          {{image.price |currency}}
+          @if (image.clearance) {
+            <span class="badge bg-success text-dark"> OFERTA</span>
+          }
+        </td>
         @if (image.stock > 0) {
           <td>{{image.stock}}</td>
         }@else {
