@@ -1,4 +1,25 @@
-<button class="btn btn-primary btn-sm" (click)="downQuantity()">-</button>
-<input type="text" [(ngModel)]="quantity">
-<button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>
+<div class="quantity-selector">
+
+    <button
+        class="btn quantity-btn"
+        (click)="downQuantity()">
+
+        -
+
+    </button>
+
+    <input
+        type="text"
+        class="quantity-input"
+        [(ngModel)]="quantity">
+
+    <button
+        class="btn quantity-btn"
+        (click)="upQuantity()">
+
+        +
+
+    </button>
+
+</div>
 

@@ -1,41 +1,144 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">image</th>
-      <th scope="col">Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">Price</th>
-      <th scope="col">Stock</th>
-      <th scope="col">compra</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (image of images; track image.name) {
-      <tr >
-        <td><img width="200" class="img-thumbnail" [src]="image.img" [alt]="image.name"></td>
-        <td>{{image.name}}</td>
-        <td>{{image.type}}</td>
-        <td >
-          {{image.price |currency}}
-          @if (image.clearance) {
-            <span class="badge bg-success text-dark"> OFERTA</span>
-          }
-        </td>
-        @if (image.stock > 0) {
-          <td>{{image.stock}}</td>
-        }@else {
-          <td><span class="badge bg-warning text-dark">SIN STOCK</span></td>
-        }
-        <td>
-          <app-input-number [(quantity)]="image.quantity" [max]="image.stock"></app-input-number>
-          <button class="btn bg-success" (click)="addToCart(image)">add to cart</button>
-        </td>
-      </tr>
-    }@empty {
-      <tr>
-        <td colspan="4">No hay fondos para mostrar.</td>
-      </tr>
-    }
+<div class="container my-5">
 
-  </tbody>
-</table>
+    <div class="text-center mb-5">
+
+        <h1 class="display-4 fw-bold">
+            Build Your Pirate Crew
+        </h1>
+
+        <p class="lead text-secondary">
+            Collect legendary One Piece wallpapers and complete your dream collection.
+        </p>
+
+    </div>
+
+    <div class="table-responsive shadow-lg rounded-4">
+
+        <table class="table table-hover align-middle mb-0 wallpaper-table">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th scope="col">Wallpaper</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col" class="text-center">Purchase</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @for (image of images; track image.name) {
+
+                <tr>
+
+                    <td>
+
+                        <img
+                            class="product-image"
+                            [src]="image.img"
+                            [alt]="image.name">
+
+                    </td>
+
+                    <td>
+
+                        <h5 class="mb-1 fw-bold">
+                            {{image.name}}
+                        </h5>
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge bg-secondary px-3 py-2">
+                            {{image.type}}
+                        </span>
+
+                    </td>
+
+                    <td class="price">
+
+                        {{image.price | currency}}
+
+                        @if (image.clearance) {
+
+                            <span class="badge bg-danger ms-2">
+                                SALE
+                            </span>
+
+                        }
+
+                    </td>
+
+                    @if (image.stock > 0) {
+
+                    <td>
+
+                        <span class="badge bg-success px-3 py-2">
+                            {{image.stock}} Available
+                        </span>
+
+                    </td>
+
+                    } @else {
+
+                    <td>
+
+                        <span class="badge bg-warning text-dark px-3 py-2">
+                            Out of Stock
+                        </span>
+
+                    </td>
+
+                    }
+
+                    <td class="text-center">
+
+                        <div class="purchase-panel">
+
+                            <app-input-number
+                                [(quantity)]="image.quantity"
+                                [max]="image.stock">
+                            </app-input-number>
+
+                            <button
+                                class="btn btn-success add-btn mt-3"
+                                (click)="addToCart(image)">
+
+                                Add to Cart
+
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                } @empty {
+
+                <tr>
+
+                    <td colspan="6" class="text-center py-5">
+
+                        No wallpapers available.
+
+                    </td>
+
+                </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
